@@ -15,7 +15,7 @@ This script will run on OS X 11+. It supports different shell types (zshrc or ba
 
 1. From your terminal run:
 ``` sh
-wget -O - https://github.com/thecoolagency/os-x-initial-setup/blob/main/install.sh | bash
+wget -O - https://raw.githubusercontent.com/thecoolagency/os-x-initial-setup/main/install.sh | bash
 ```
 2. Then check out [Shopify Asset Downloader](https://github.com/thecoolagency/osx-bash-shopify-asset-downloader), [Web Asset Downloader](https://github.com/thecoolagency/osx-bash-web-asset-downloader) and [Instagram Data Scraper](https://github.com/thecoolagency/instagram-data-scraper).
 
