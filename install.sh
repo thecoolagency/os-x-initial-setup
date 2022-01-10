@@ -2,8 +2,6 @@
 #
 #
 
-# wget -O - https://raw.githubusercontent.com/thecoolagency/instagram-data-scraper/main/install.sh | bash
-
 # set -e
 
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
@@ -33,15 +31,17 @@ scriptsDir="$userDir/Scripts"
 echo " "
 echo "Hello $fullName"
 echo " "
-echo "This script will install the dependencies and the script to run the instaData tool then disappear!"
+echo "This script will install the minimum development tools and dependencies for my scripts then disappear!"
 echo " "
 
-echo "####### START INSTALL DEP ##################################################### "
+echo "####### START INSTALL ##################################################### "
 echo " "
 
+echo "Installing xcode CLI..."
 # install xcode CLI
 xcode-select —-install
 
+echo "Check if Homebrew is installed, if not install it..."
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
     echo "Installing homebrew..."
@@ -50,6 +50,7 @@ fi
 
 exec $SHELL
 
+echo "Updating Homebrew..."
 # Update homebrew recipes
 brew update
 
@@ -65,8 +66,9 @@ brew install ${PACKAGES[@]}
 
 exec $SHELL
 
-# set up PYENV
 
+echo "Configuring Pyenv..."
+# set up PYENV
 pyenv init
 
 
@@ -104,12 +106,14 @@ fi
 
 exec $SHELL
 
+echo "Installing Python..."
 pyenv install 3.10.0
 
 pyenv global 3.10.0
 
 # install python packages
-echo "Installing Python packages..."
+echo "Installing Python packages (Instaloader)..."
+
 PYTHON_PACKAGES=(
     instaloader
 )
